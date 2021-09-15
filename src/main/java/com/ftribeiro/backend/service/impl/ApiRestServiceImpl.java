@@ -27,7 +27,9 @@ public class ApiRestServiceImpl implements ApiRestService{
                 start = i;
                 maxEnding = itemsList.get(i);
             } else {
-                maxEnding = maxEnding + itemsList.get(i);
+                if (i!=0) {
+                    maxEnding = maxEnding + itemsList.get(i);                  
+                } 
             }
             if (subMaxSum < maxEnding) {
                 subMaxSum = maxEnding;
