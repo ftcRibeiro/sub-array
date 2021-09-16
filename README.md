@@ -1,7 +1,16 @@
 # Api Teste Studio Sol - Felipe Ribeiro
 
 ## Sobre a execução
+### Opção de execução local
+Foi escrito um `Dockerfile` e um `docker-compose`. Assim, para a execução, basta possuir o [docker instalado em sua máquina](https://docs.docker.com/engine/install/) e executar o comando:
+    
 
+    docker-compose up
+
+Em seguida a aplicação fica disponível em http://localhost:8080
+
+### Opção em Prod
+A aplicação foi disponibilizada via Heroku, e está acessível na url https://sub-array-api.herokuapp.com
 
 ## Sobre a solução
 Para solucionar o problema do teste foi utilizado o conceito de programação dinâmica, que busca divisão do problema
@@ -32,3 +41,9 @@ Em seguida avalia-se o valor do elemento em relação à soma máxima, já que e
 
 
 Dessa forma o problema foi dividido em `n` subproblemas, encontrando a soma máxima em cada índice, iterando assim somente uma vez no vetor. Com esse princípio e a referência do `Algoritmo de Kadane` foi implementada a lógica.
+
+## Porque essa abordagem?
+
+Uma outra abordagem possível seria a utilização de *força bruta*, testando cada subvetor possível de 1, 2 ou n posições. Dessa forma, seria necessária uma implementação que contemplaria uma cadeia de *fors*, aumentando significativamente a complexidade do código, estando assim em ordem de O(n^2).
+
+Em contrapartida, a abordagem escolhida apresenta uma complexidade O(n), assim sendo mais performática do que a anterior ao se aumentar a entrada.

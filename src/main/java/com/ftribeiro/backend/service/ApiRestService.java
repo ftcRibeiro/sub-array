@@ -5,5 +5,5 @@ import java.util.List;
 import com.ftribeiro.backend.dto.MaxSumDTO;
 
 public interface ApiRestService {
-    public MaxSumDTO getMaxSum(List<Integer> itemsList);
+    public MaxSumDTO getMaxSum(List<Integer> itemsList) throws Exception;
 }

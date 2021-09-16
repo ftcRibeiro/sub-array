@@ -1,6 +1,10 @@
 package com.ftribeiro.backend.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ftribeiro.backend.dto.MaxSumDTO;
 import com.ftribeiro.backend.enums.CasesEnum;
@@ -22,23 +26,34 @@ public class ApiRestServiceTest {
     ApiRestService apiRestService;
 
     @Test
-    public void testCase1(){
-        MaxSumDTO dto = apiRestService.getMaxSum(CasesEnum.CASE1.getInputList());
-        assertEquals(CasesEnum.CASE1.getResponse(), dto);
+    public void testValidInputCase1() throws Exception{
+        MaxSumDTO dto = apiRestService.getMaxSum(CasesEnum.VALID_CASE1.getInputList());
+        assertEquals(CasesEnum.VALID_CASE1.getResponse(), dto);
     }
+
     @Test
-    public void testCase2(){
-        MaxSumDTO dto = apiRestService.getMaxSum(CasesEnum.CASE2.getInputList());
-        assertEquals(CasesEnum.CASE2.getResponse(), dto);
+    public void testValidInputCase2() throws Exception{
+        MaxSumDTO dto = apiRestService.getMaxSum(CasesEnum.VALID_CASE2.getInputList());
+        assertEquals(CasesEnum.VALID_CASE2.getResponse(), dto);
     }
+
     @Test
-    public void testCase3(){
-        MaxSumDTO dto = apiRestService.getMaxSum(CasesEnum.CASE3.getInputList());
-        assertEquals(CasesEnum.CASE3.getResponse(), dto);
+    public void testValidInputCase3() throws Exception{
+        MaxSumDTO dto = apiRestService.getMaxSum(CasesEnum.VALID_CASE3.getInputList());
+        assertEquals(CasesEnum.VALID_CASE3.getResponse(), dto);
     }
+
     @Test
-    public void testCase4(){
-        MaxSumDTO dto = apiRestService.getMaxSum(CasesEnum.CASE4.getInputList());
-        assertEquals(CasesEnum.CASE4.getResponse(), dto);
+    public void testValidInputCase4() throws Exception{
+        MaxSumDTO dto = apiRestService.getMaxSum(CasesEnum.VALID_CASE4.getInputList());
+        assertEquals(CasesEnum.VALID_CASE4.getResponse(), dto);
+    }
+
+    @Test
+    public void testEmptyInput() throws Exception{
+        List<Integer> itemsList = new ArrayList<Integer>();
+        assertThrows(Exception.class,()->{
+            apiRestService.getMaxSum(itemsList);
+        });
     }
 }
