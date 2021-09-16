@@ -1,0 +1,15 @@
+version: '2'
+services:
+  sub-array-app:
+    container_name: sub-array-app
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: ftribeiro/sub-array-app:latest
+    ports:
+      - 8080:8080
+    networks:
+      - app-network
+networks: 
+  app-network:
+    driver: bridge
